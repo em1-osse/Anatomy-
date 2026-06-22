@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التشريح التعليمية | Anatomy Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand" onclick="app.goHome()">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span id="nav-title">منصة التشريح</span>
+                </div>
+                <div class="nav-actions">
+                    <button class="nav-btn" id="lang-btn" onclick="app.toggleLang()" title="تغيير اللغة / Change Language">
+                        <i class="fas fa-globe"></i>
+                        <span>EN/AR</span>
+                    </button>
+                    <button class="nav-btn" onclick="app.toggleSearch()" title="بحث">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="nav-btn menu-toggle" onclick="app.toggleMenu()" title="القائمة">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div id="search-bar" class="search-bar hidden">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="ابحث في الدروس والمحاضرات..." oninput="app.handleSearch(this.value)">
+                <button onclick="app.toggleSearch()" class="close-search"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <div class="menu-header">
+                <h3 id="menu-title">القائمة</h3>
+                <button onclick="app.toggleMenu()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="menu-courses" id="menu-courses"></div>
+        </div>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content">
+            <!-- Dynamic content loaded here -->
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p id="footer-text">منصة تعليمية تفاعلية لملخصات الجامعة</p>
+                <div class="footer-actions">
+                    <button class="footer-btn" onclick="app.printCurrent()">
+                        <i class="fas fa-print"></i>
+                        <span id="print-text">طباعة / Print</span>
+                    </button>
+                    <button class="footer-btn" onclick="app.goHome()">
+                        <i class="fas fa-home"></i>
+                        <span id="home-text">الرئيسية</span>
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0feeb9e8d9ad1d4',t:'MTc4MjE2OTc2Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
